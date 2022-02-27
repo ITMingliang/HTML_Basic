@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/dist/css/bootstrap.css"/>
+	</head>
+	<body>
+		<!-- 
+			栅格网格系统
+				将每一行平分为12列
+				行:row
+				列:col-md-*(列数)   col-sm-*(列数)   col-lg-*(列数)  col-xs-*(列数)
+				
+			列组合
+				列组合简单理解就是更改数字来合并列（原则：列总和数不能超12，大于12,则自动换到下一行。），有点类似于表格的colspan属性。
+		 
+			列偏移
+			​	如果我们不希望相邻的两个列紧靠在一起，但又不想使用margin或者其他的技术手段来。这个时候就可以使用列偏移（offset）功能来实现。使用列偏移也非常简单，只需要在列元素上添加类名"col-md-offset-*"(其中星号代表要偏移的列组合数)，那么具有这个类名的列就会向右偏移。例如，你在列元素上添加"col-md-offset-8"，表示该列向右移动8个列的宽度(要保证列与偏移列的总数不超过12，不然会致列断行|换行显示)。
+		 
+			列排序
+			​	列排序其实就是改变列的方向，就是改变左右浮动，并且设置浮动的距离。在Bootstrap框架的网格系统中是通过添加类名 col-md-push-* 和 col-md-pull-*  (其中星号代表移动的列组合数)。往前pull，往后push。
+		 -->
+		<div class="container">
+			<div class="row">
+				<span class="col-md-8 col-xs-12" style="background-color: #000099;">
+					8列
+				</span>
+				<span class="col-md-4 col-xs-12" style="background-color: #00AA88;">
+					4列
+				</span>
+			</div>
+			<div class="row">
+				<span class="col-md-8 col-xs-12" style="background-color: #00CCFF;">
+					8列
+				</span>
+				<span class="col-md-5 col-xs-12" style="background-color: red;">
+					5列
+				</span>
+			</div>
+			
+			<!-- 列偏移 -->
+			<div class="row">
+				<span class="col-md-3 col-md-offset-1" style="background-color: #00CCFF;">
+					3列
+				</span>
+				<span class="col-md-3 " style="background-color: red;">
+					3列
+				</span>
+				<span class="col-md-3 " style="background-color: #000099;">
+					3列
+				</span>
+			</div>
+			
+			<!-- 列排序 -->
+			<div class="row">
+				<span class="col-md-3 col-md-pull-2" style="background-color: #00CCFF;">
+					3列
+				</span>
+				<span class="col-md-3 " style="background-color: red;">
+					3列
+				</span>
+				<span class="col-md-3 col-md-push-2" style="background-color: #000099;">
+					3列
+				</span>
+			</div>
+			
+			<!-- 列嵌套 -->
+			<div class="row">
+				<span class="col-md-3" style="background-color: green;">
+					<div class="row">
+						<span class="col-md-1 " style="background-color: red;">
+							1列
+						</span>
+					</div>
+				</span>
+				<span class="col-md-3 " style="background-color: red;">
+					3列
+				</span>
+				<span class="col-md-3 col-md-push-2" style="background-color: #000099;">
+					3列
+				</span>
+			</div>
+		</div>
+	</body>
+</html>

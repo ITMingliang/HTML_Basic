@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 
+			属性选择器
+				$("[属性名]")			获取所有设置过指定属性名的元素
+				$("[属性名='属性值']")	 获取所有设置过指定属性名等于指定属性值的元素
+			过滤选择器
+				$(":eq(index)") 	匹配元素的指定下标的元素 （下标从0开始）  .eq(index)
+				$(":gt(index)")		匹配元素下标大于指定值元素 （下标从0开始）.gt(index)
+				$(":odd")			匹配奇数下标
+				$(":even")			匹配偶数下标
+				$(":checked")		匹配元素被选中
+		 -->
+		
+		<form id='myform' name="myform"  method="post">
+			<input type="hidden" name="uno" value="9999" disabled="disabled"/>
+			姓名:<input type="text" id="uname" name="uname" /><br />
+			密码:<input type="password" id="upwd" name="upwd" value="123456" /><br />
+			年龄:<input type="radio" name="uage" value="0" checked="checked"/>小屁孩
+				 <input type="radio" name="uage" value="1"/>你懂得  <br /> 
+			爱好:<input type="checkbox" name="ufav" value="篮球"/>篮球
+				 <input type="checkbox" name="ufav" value="爬床"/>爬床
+				 <input type="checkbox" name="ufav" value="代码"/>代码<br />
+			来自:<select id="ufrom" name="ufrom">
+					<option value="-1" selected="selected">请选择</option>
+					<option value="0">北京</option>
+					<option value="1">上海</option>
+				</select><br />
+			简介:<textarea rows="10" cols="30" name="uintro"></textarea><br />
+			头像:<input type="file"  /><br />
+			<input type="image" src="http://www.baidu.com/img/bd_logo1.png"  width="20" height="20"/>
+			<button type="submit" onclick="return checkForm();">提交</button>
+			<button type="reset" >重置</button>		
+		</form>
+
+		<script type="text/javascript">
+			// $(":eq(index)") 	匹配元素的指定下标的元素 （下标从0开始）  .eq(index)
+			console.log($(":eq(0)"));
+			console.log($(":eq(1)"));
+			console.log($(":eq(2)"));
+			console.log($(":eq(3)"));
+			console.log($(":eq(4)"));
+			console.log($(":eq(5)"));	
+			console.log($(":eq(6)"));
+			console.log($(":eq(7)"));
+			console.log($(":eq(8)"));
+			console.log("============");
+
+			//$(":gt(index)")	匹配元素下标大于指定值元素 （下标从0开始）.gt(index)
+			console.log("==大于5===");
+			console.log($(":gt(5)"));
+			
+			//$(":g=lt(index)")	匹配元素下标小于指定值元素 （下标从0开始）.lt(index)
+			console.log("==小于5===");
+			console.log($(":lt(5)"));
+			
+			//$(":odd")			匹配奇数下标
+			console.log($(":odd"));
+			
+			// $(":even")		匹配偶数下标
+			console.log($(":even"));
+
+			//$(":checked")		匹配元素被选中，包含的有option和input标签
+			console.log($(":checked"));
+
+		</script>
+	</body>
+</html>

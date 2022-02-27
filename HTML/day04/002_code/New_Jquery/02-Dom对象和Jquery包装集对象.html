@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="div1">块级元素</div>
+		<!-- 
+			DOM
+				通过document.getElementById("id属性值")获取
+				如果元素不存在，则获取的是null
+				
+			Jquery包装集对象
+				$("#id属性值");获取  
+				如果元素不存在，不会返回null，是一个空的结果集
+				
+				
+				判断dom节点对象是否存在，判断是否为空
+				判断jquery对象是否存在，判断其长度length属性是否为0
+				
+			
+			Dom转换成jquery包装集对象
+				$(dom对象);     将需要转换的内容(dom对象/标签体)放入$(内容)中
+			
+			jquery包装集对象	转换成Dom
+				jquery对象[下标]   可以直接获取到其中的dom对象
+				
+		 -->
+		<script type="text/javascript">
+			//获取dom对象
+			var divDom = document.getElementById("div1");
+			var divDom2 = document.getElementById("div2");
+			
+			console.log(document.getElementById("div1"));
+			console.log(divDom.innerHTML);
+
+			console.log(divDom2);//null
+			
+			//jquery包装集对象
+			var divJquery = $("#div1");
+			var divJquery2 = $("#div2");
+			console.log(divJquery);
+			console.log(divJquery2);
+			console.log(divJquery.length);
+			console.log(divJquery2.length);
+			
+			//Dom转换成jquery包装集对象
+			console.log($(divDom));
+			var span = "<span>行内元素</span>";
+			console.log($(span));
+			
+			//jquery包装集对象	转换成Dom
+			var newDom = divJquery[0];
+			console.log(newDom);
+			
+			
+			$('#div1').each(function() {//遍历
+				   console.log($(this));
+				   console.log(this);
+			});
+			
+		</script>
+	</body>
+</html>

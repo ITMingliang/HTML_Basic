@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.dotted {border-style: dotted}
+			.dashed {border-style: dashed} 
+			.solid {border-style: solid}
+			.double {border-style: double}
+			.groove {border-style: groove}
+			.ridge {border-style: ridge}
+			.inset {border-style: inset}
+			.outset {border-style: outset}
+
+			span{
+				border: 2px solid #0000FF;
+				/* border-color: #00FFFF #8A2BE2 #FF0000 brown; */
+				border-width: 1px 2px 3px 4px;
+				border-style: dashed dotted solid double;				
+				/* padding: 10px; */
+				padding: 10px 20px 30px 40px;
+				margin: 20px;
+			}
+
+			/* 注意是id选择 ，不是标签选择*/
+			#div{
+				margin-top: 100px;
+			}
+			
+			#parent {
+				width: 200px;
+				height: 200px;
+				background-color: #FA8072;
+			}
+
+			#children {
+				width: 50px;
+				height: 50px;
+				background-color: #9ACD32;
+				position: absolute;
+				margin-left: 75px;
+				margin-top: 75px;
+			}
+
+			
+		</style>
+	</head>
+	<body>
+		<!-- 
+			盒子模型 （上右下左），顺时针方向
+				border 边框
+					1. 同时设置边框的宽度、颜色、边框线的风格
+					border-width，border-clolor，border-style
+					border-style：dotted/dashed/solid/double/groove/ridge/inset/outset
+					2. 单独设置属性
+					3. 设置不同方向的属性 
+						如果只设置一个值，表示四个方向的值；
+						如果只设置两个值，上下一致，左右一致；
+						如果设置了三个值，上下右，左和右默认一致
+				合并边框（border-collaspe）
+					设置是否将表格边框折叠为单一边框；
+					属性值：separate (默认，单元格边框独立) collaspe：单元格边框独立；
+				    border-collaspe:collaspe 相当于 table中的 cellspacing="0"属性值；
+				padding 内边距
+					单独设置各边的内边距：padding-top、padding-left、padding-bottom、padding-right						
+		 -->
+		 <hr ><br>
+		<span>行内1</span>
+		<span>行内2</span>
+		<span>行内3</span>
+
+		<div >
+			块级元素
+		</div>
+
+		<div id="div">
+			块级元素2
+		</div>
+			
+		</div>
+		
+		<div id="parent">
+			<div id="children">
+			</div>
+		</div>
+		 
+	</body>
+</html>

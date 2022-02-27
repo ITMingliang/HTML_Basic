@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<!-- 内部样式 -->
+	<style type="text/css">
+		body{
+		 background-color: #00FFFF; 
+			/* background-image: url(img/lbw.jpg); /* 默认全铺满屏幕 */
+		 background-repeat: repeat-y;  
+		}
+		.div1{
+			text-align: justify;
+		}
+		#div2,a{
+			text-decoration: none;/* 去除文本样式 */
+			text-decoration: overline;/* 上划线 */
+			text-decoration: underline;/* 下划线 */
+			text-decoration: line-through;/* 中划线 */
+			text-decoration: overline underline line-through;/* 三种样式同时设置  */
+			/* 上面的设置样式会被下面的样式覆盖 */
+		}
+		p{
+			text-indent: 2em;
+			/* text-indent: 34px; */
+			font-weight: 700; /* 文字加粗：700为正常加粗 */
+		}
+		#div3{
+			font-family: 华文新魏1,宋体,"arial black"; /* 字体后备机制 */
+			font-size: 17px;
+			font-style: italic; /* italic是字体斜体样式，不是强加样式，oblique是强加斜体样式 */
+		}
+		#div4{
+			display: none; /* 不显示 */
+			color: #0000FF;
+		}
+		.divv{
+			float: right;
+		}
+	</style>
+	<body>
+		<!-- 
+			常用属性
+				背景
+					background-color    背景颜色
+					background-image    背景图片
+					background-repeat   图片重复方式(no-repeat)
+				文本
+					color
+						字体颜色
+					text-align   控制文本的对齐方式
+						left     居左
+						center   居中
+						right    居左
+						justify  两端对齐
+					text-decoration  
+						取消超链接的下划线  text-decoration: none;
+					text-indext
+						em一个相对值，例如页面的文本大小为17px,则2em就为17px*2
+						也可以设置px值
+						
+		 -->
+		 <div class="div1">
+		 	属性应该设置几个字体名称作为一种"后备123"机制，如果浏览器不支持第一种字体，他将尝试下一种字体，所以尽量将不常见的字体靠前，将最常见的字体放置在最后，作为替补。
+			属性应该设置几个字体名称作为一种",.后备"机制，如果浏览器不支持第一种字体，他将尝试下一种字体，所以尽量将不常见的字体靠前，将最常见的字体放置在最后，作为替补。
+			属性应该设置几个字体名称作为一种pop"后备"机制，如果浏览器不支持第一种字体，他将尝试下一种字体，所以尽量将不常见的字体靠前，将最常见的字体放置在最后，作为替补。
+			属性应该设置几个字体名称作为一种"后备"机制，如果浏览器不支持第一种字体，他将尝试下一种字体，所以尽量将不常见的字体靠前，将最常见的字体放置在最后，作为替补。
+			属性应该设置几个字体名称作为一种"后备dsd"机制，如果浏览器不支持第一种字体，他将尝试下一种字体，所以尽量将不常见的字体靠前，将最常见的字体放置在最后，作为替补。
+			属性应该设置几个字体名称作为一种"后备dssd"机制，如果浏览器不支持第一种字体，他将尝试下一种字体，所以尽量将不常见的字体靠前，将最常见的字体放置在最后，作为替补。
+			属性应该设置几个字体名称作为一种"后备"机制，如果浏览器不支持第一种字体，他将尝试下一种字体，所以尽量将不常见的字体靠前，将最常见的字体放置在最后，作为替补。
+		 </div>
+		 
+		 <a href="">超链接</a>
+		 <div id="div2">
+		 	普通文本
+		 </div>
+		 <p>属性应该设置几个字体名称作为一种pop"后备"机制，如果浏览器不支持第一种字体，他将尝试下一种字体。</p>
+		 
+		 <!-- 
+		  字体
+			font-family
+			​	文本字体，该属性设置文本的字体。 
+			​	font-family属性应该设置几个字体名称作为一种"后备"机制，如果浏览器不支持第一种字体，他将尝试下一种字体，
+				所以尽量将不常见的字体靠前，将最常见的字体放置在最后，作为替补。
+				
+			font-size
+				设置文本大小
+				
+			font-style  字体风格 
+				normal  正常体显示
+				italic  斜体
+				oblique 斜体（浏览器不识别italic时候，强制转为斜体）
+				
+			font-weight  
+				字体加粗，该属性设置文本的粗细。
+				取值范围100-900
+				正常字体400
+				粗体700（bold）
+				
+			display：
+				四个属性：block,none,inline,inline-block；
+				div可以通过inline-block值，设置为行内块级字体。
+				
+				
+			
+			float
+				浮动
+		  -->
+		  <div id="div3">
+		  	ru果浏览器不支持第一种字体，他将尝试下一种字体，所以尽量将不常见的字体
+		  </div>
+		  
+		  <div id="div4">
+		  	消失不显示的文字
+		  </div>
+		  
+		  <ul>
+		  	<li>a</li>
+			<li>b</li>
+			<li>c</li>
+			<li>d</li>
+		  </ul>
+		  
+		  <!-- 将div设置为行内元素 -->
+		  div前面的文本<div style="color: red; display: inline;">中间的</div>div后面的文本
+		  <!-- 将span设置为块级元素 -->
+		  <span style="display: block;">abc</span> 
+		  
+		 TEST <div>正常的div测试一</div> TEST <br>
+		  <span>正常的span测试二</span>
+
+		  <!-- 越在前越靠右侧 -->
+		  <div class="divv">
+		  	块级1
+		  </div>
+		  <div class="divv">
+		  	块级2
+		  </div>
+
+	</body>
+</html>

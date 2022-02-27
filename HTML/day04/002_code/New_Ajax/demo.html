@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jquery + Dom</title>
+		<script src="js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		
+		<script type="text/javascript">
+			$.ajax({
+				type:'get',
+				url:'js/data.json',
+				dataType:'json',
+				success:function(data){
+					// console.log(data);
+					//将数据显示在页面的表格中
+					loadTable(data);
+				}
+			});
+			
+			//加载表格数据
+			function loadTable(data){
+				if(data.code == 1){
+					//创建表格
+					var table = $("<table align='center' border='1' width='500px' style='border-collapse: collapse;'></table>");
+					//创建行  表头信息
+					var tr = "<tr><th>姓名</th><th>年龄</th><th>工作</th><th>性别</th><th>操作</th></tr>";
+					//将表头追加到表格中
+					table.append(tr);
+					
+					//判断数据是否拿到
+					if(data.result.length > 0){
+						//遍历取数据
+						for(var i = 0; i < data.result.length; i++){
+							//获取到当前数据
+							var obj = data.result[i];
+							
+							var uname = obj.uname;
+							var uage = obj.uage;
+							var job = obj.job;
+							var sex = obj.sex == 0 ? "女" : "男";
+							
+							//拼接每一行数据
+							var dataStr = "<tr align='center'><td>"+uname+"</td><td>"+uage+"</td><td>"+job+"</td>";
+							dataStr += "<td>"+sex+"</td><td><button type='button'>删除</button></td></tr>";
+							
+							table.append(dataStr);
+						}
+					}
+					
+					//将表格追加到div中
+					$("#div1").append(table);
+				}else{
+					//数据获取失败的提示语句
+					console.log(data.msg);
+				}
+			}
+		</script>
+	</body>
+</html>

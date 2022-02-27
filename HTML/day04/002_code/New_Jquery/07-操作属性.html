@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 
+			属性分类
+				固有属性
+					href、src.....
+				共有属性
+					id,class,name......
+				自定义属性
+					abc= '1234'
+					
+			操作属性的方法
+				区别：
+					1.prop不能操作自定义属性
+					2.prop获取Boolean类型的属性是 true/false 
+				获取属性值
+					attr(属性名称)				获取指定的属性值，操作 checkbox 时，<br />选中返回 checked，没有选中返回 undefined。attr('checked')<br />attr('name')
+					prop(属性名称)				获取具有true和false两个属性的属性值prop('checked')
+				
+				设置属性值
+					attr(属性名称,属性值);
+					prop(属性名称,属性值);
+					
+				移除属性
+				removeAttr("属性")		</removeAttr>移除指定的属性removeAttr('checked')
+		 -->
+		<form action="" id="myform">
+			<input type="checkbox" id="ch1" name="ch1" abc='123' checked="checked"/>	aa
+			<input type="checkbox" id="ch2" name="ch2" abc='456'/>	bb
+		</form>
+		<script type="text/javascript">
+			var ch1 =  $("#ch1");
+			var ch2 =  $("#ch2");
+			
+			//获取固有属性
+			console.log(ch1.attr('type'));
+			console.log(ch1.prop('type'));
+			
+			//获取共有属性
+			console.log(ch1.attr('name'));
+			console.log(ch2.prop('name'));
+			
+			//获取自定义属性   prop不能操作自定义属性
+			console.log(ch1.attr('abc'));
+			console.log(ch2.prop('abc'));//undefined
+			
+			//获取boolean类型的属性
+			console.log(ch1.attr('checked'));//checked
+			console.log(ch1.prop('checked'));//true
+			
+			//设置boolean类型属性
+			ch1.attr("checked",0);
+			ch2.attr("checked","checked");
+			//效果相同
+			ch1.prop("checked",false);
+			ch2.prop("checked",true);
+			
+			//设置自定义属性
+			ch1.attr("abc",'999');
+			//prop不能操作自定义属性
+			ch2.prop("abc",'999'); //---设置无效
+			
+			//设置共有属性
+			ch1.attr("name",'ab1');
+			ch2.prop("name",'ab1'); 
+			
+			//移除属性
+			ch1.removeAttr("checked");//boolen类型
+			ch1.removeAttr("abc");//自定义属性
+			ch1.removeAttr("name");//共有属性
+			ch1.removeAttr("type");//独有属性 
+		</script>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			时间函数
+				返回值  id   唯一标识    方便关闭
+				setTimeOut()
+					在指定毫秒数之后执行某个代码/函数
+				setInterval()
+					以指定毫秒数为周期循环执行某个代码/函数
+		 -->
+		 <button type="button" onclick="startTime()">开始</button>
+		 <button type="button" onclick="closeTime()">结束</button>
+		 
+		<h2 id="h2"></h2>
+		<script type="text/javascript">
+			//setTimeOut()
+			/* setTimeout(function(){
+				console.log("时间函数1");
+			},3000); */
+			
+			/* setInteval()
+			setInterval(function(){
+				console.log("时间函数2");
+			},3000); */
+			
+			
+			//在页面中 写 出时间
+			function writeTime(){
+				//获取时间
+				var dat = new Date();	
+				//格式化时间
+				var newDate = format(dat);
+				
+				//将时间设置到指定位置    innerHTML给某个元素设置内容
+				var h2 = document.getElementById("h2");
+				//当时间为整分钟时切换颜色
+				if(dat.getSeconds() == 0){
+					h2.style.color = "red";
+				}else{
+					h2.style.color = "black";
+				}
+					h2.innerHTML = newDate;
+				
+			}
+			
+			var id;
+			//开始循环调用写出时间的函数
+			function startTime(){
+				id = setInterval(writeTime,1000);
+			}
+			
+			//关闭时间
+			function closeTime(){
+				clearInterval(id);
+			}
+			
+			
+			//格式化时间
+			function format(dat){
+				//获取年月日，时间
+				var year = dat.getFullYear();
+				var mon = (dat.getMonth()+1) < 10 ? "0"+(dat.getMonth()+1) : dat.getMonth()+1;
+				var data = dat.getDate()  < 10 ? "0"+(dat.getDate()) : dat.getDate();
+				var hour = dat.getHours()  < 10 ? "0"+(dat.getHours()) : dat.getHours();
+				var min =  dat.getMinutes()  < 10 ? "0"+(dat.getMinutes()) : dat.getMinutes();
+				var seon = dat.getSeconds() < 10 ? "0"+(dat.getSeconds()) : dat.getSeconds();
+				
+				var newDate = year +"-"+ mon +"-"+ data +" "+ hour +":"+ min +":"+ seon;
+				return newDate;
+			}
+			
+		</script>
+	</body>
+</html>

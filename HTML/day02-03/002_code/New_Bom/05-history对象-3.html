@@ -1,0 +1,34 @@
+、<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			history
+				属性
+					length    获取用户访问窗口的个数
+				方法
+					back();    后退
+					forward(); 前进
+					go(i);     i如果为正数则是前进，负数为后退  向某个方向执行i个页面的跳转
+		 -->
+		 <h1>3号页面</h1>
+		 
+		 <button type="button" onclick="fun1()">后退</button>
+		 <button type="button" onclick="fun2()">后退2个</button>
+		 <script type="text/javascript">
+			 console.log(window.history.length);
+			 
+		 	function fun1(){
+				window.history.back();
+			}
+			
+			function fun2(){
+				window.history.go(-2);
+			}
+		 </script>
+		
+	</body>
+</html>

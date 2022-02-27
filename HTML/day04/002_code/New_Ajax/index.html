@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 
+			ajax请求
+				格式：
+					$.ajax({
+						type:请求方式GET/POST,
+						url:"请求的地址",
+						data:"需要传输的数据",
+						dataType:"预期服务器返回的数据类型", text|html|json
+						success:function(返回的数据){
+							// 回调函数，形参名会接收返回的结果
+						}
+					});
+					
+				
+					$.get()
+						发送请求方式为get的ajax请求
+						语法：
+							$.get("请求的地址","请求的参数",回调函数);
+							
+					$.post()
+						发送请求方式为post的ajax请求
+						语法：
+							$.post("请求的地址","请求的参数",回调函数);
+								
+					$.getJSON()
+						发送ajax请求，要求返回的数据格式必须是JSON
+						语法：
+							$.getJSON("请求的地址","请求的参数",回调函数);
+		 -->
+		<script type="text/javascript">
+			$.ajax({
+				type:'get',
+				url:'js/data.json',
+				data:{
+					uname:"abc",
+					upwd:'123'
+				},
+				dataType:'json',
+				success:function(data){
+					console.log(data);
+				},
+				error:function(){
+					console.log("找不到");
+				}
+			});
+			
+			
+			$.get('js/data.json',{name:"tom",age:100},function(data){
+				console.log(data);
+			});
+			
+			//404找不到服务器
+			/* $.post('js/cuisine_area.json',{name:"tom",age:100},function(data){
+				console.log(data);
+			}); */
+			
+			$.getJSON('js/data.json',{name:"tom",age:100},function(data){
+				console.log(data); // 要求返回的数据格式是JSON格式
+			});
+		</script>
+		
+	</body>
+</html>

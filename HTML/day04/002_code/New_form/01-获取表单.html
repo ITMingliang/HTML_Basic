@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			获取表单
+				1、document.表单名称
+				2、document.getElementById(表单 id);
+				3、document.forms[表单名称]
+				4、document.forms[索引]; //从 0 开始
+		 -->
+		<form id='myform' name="myform" action="" method="post"></form>
+		<form id='myform2' name="myform2" action="" method="post"></form>
+		
+		<script type="text/javascript">
+			//document.表单名称
+			var form = document.myform;
+			console.log(form);
+			
+			//document.getElementById(表单 id);
+			var myform2 = document.getElementById("myform2");
+			console.log(myform2);
+			
+			//3、document.forms[表单名称]
+			var forms = document.forms;
+			console.log(forms);
+			console.log(forms['myform2']);
+			
+			//4、document.forms[索引]; //从 0 开始
+			console.log(forms[0]);
+		</script>
+	</body>
+</html>

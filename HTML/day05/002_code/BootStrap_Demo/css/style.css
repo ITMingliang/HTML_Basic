@@ -1,0 +1,21 @@
+/* 设置图片大小 */
+.row img{
+	width:200px;
+	height: 200px;
+}
+
+/* 设置技术的段落信息 */
+.row p{
+	text-indent: 2em;
+	line-height:30px;
+}
+
+/* 设置版权信息的样式 */
+.copyRight{
+	background-color: black;/* 背景颜色 */
+	color: white;/* 字体颜色 */
+	text-align: center;/* 内容居中 */
+	margin-top: 50px;/* 距离上面的外边距 */
+	padding-top: 25px;/* 距离上边框的内边距 */
+	padding-bottom: 15px;/* 距离下边框的内边距 */
+}

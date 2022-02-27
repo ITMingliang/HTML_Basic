@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			创建节点
+				createElement()创建一个新的节点，需要传入节点的标签名称，返回创建的元素对象
+				createTextNode()创建一个文本节点，可以传入文本内容
+				innerHTML 		也能达到创建节点的效果，直接添加到指定位置了
+			
+			插入节点
+				write()				将任意的字符串插入到文档中
+				appendChild()		向元素中添加新的子节点，作为最后一个子节点
+				insertBefore()		向指定的已有的节点之前插入新的节点newItem：要插入的节点exsitingItem：
+										参考节点   需要参考父节点
+		 -->
+		<button onclick="addPara();">添加段落</button>
+		<button onclick="addImg();">添加图片</button>
+		<button onclick="addTxt();">添加文本框</button>
+		<button onclick="addOptions()">添加选项</button> 
+		<span id="uzi">UZI</span>
+		<select name="music">
+			<option value="-1">你心内的一首歌</option>
+			<option value="0">南山南</option>
+			<option value="1">喜欢你</option>
+		</select>
+		<span id="pdd">PDD</span>
+		<hr />
+		<div id = "container"></div>
+		
+
+		
+		<script type="text/javascript">
+			//添加段落
+			function addPara(){
+				//获取插入元素节点
+				var div = document.getElementById("container");
+				
+				/* 第一种 */
+				//创建段落节点
+				/* var p = document.createElement("p");
+				//创建文本节点
+				var txt = document.createTextNode("这是一个P标签");
+				//将文本节点追加到p标签中
+				p.appendChild(txt);
+				//将p标签追加到div中
+				div.appendChild(p) */
+				
+				/* 第二种 */
+				//创建段落节点
+				/* var p = document.createElement("p");
+				//设置p标签的内容
+				p.innerHTML = "这是一个P标签";
+				//将p标签追加到div中
+				div.appendChild(p) */
+				
+				
+				/* 第三种 */
+				div.innerHTML += "<p>这是一个P标签</p>";
+				
+			}
+		
+			//添加图片
+			function addImg(){
+				//获取插入元素节点
+				var div = document.getElementById("container");
+				
+				//第一种
+				//创建图片标签
+				/* var img = document.createElement("img");
+				//设置图片标签中的属性
+				img.src = "img/lbw.jpg";
+				img.width = 200;
+				img.title = "卢本伟";
+				//追加到指定位置
+				div.appendChild(img); */
+				
+				
+				//第二种
+				//创建图片标签
+				/* var img = document.createElement("img");
+				//设置图片标签属性
+				img.setAttribute("src","img/lbw.jpg");
+				img.setAttribute("width","200");
+				//追加到指定位置
+				div.appendChild(img); */
+				
+				//第三种
+				div.innerHTML += "<img src='img/lbw.jpg' width='100' />";
+			}
+		
+			//添加文本框
+			function addTxt(){
+				//获取插入元素节点
+				var div = document.getElementById("container");
+				
+				//创建文本框节点
+				/* var input = document.createElement("input");
+				//设置属性
+				input.type = "text";
+				input.value = "admin";
+				div.appendChild(input); */
+				
+				
+				//第二种
+				//创建图片标签
+				var input = document.createElement("input");
+				//设置图片标签属性
+				input.setAttribute("type","text");
+				input.setAttribute("value","admin");
+				//追加到指定位置
+				div.appendChild(input);
+				
+			}
+		
+			//添加选项
+			function addOptions(){
+				//获取到指定位置的元素节点
+				var select = document.getElementsByName("music")[0];
+				//获取用户输入内容
+				var str = prompt("请输入");
+				
+				//创建选项
+				/* var option = document.createElement("option");
+				// var txt = document.createTextNode(str);
+				// option.appendChild(txt);
+				option.innerHTML = str;
+				//设置选项属性
+				option.value = 2;
+				//将选项追加到下拉框中
+				select.appendChild(option); */
+				
+				
+				//获取到下拉框的列表  数组
+				/* var options = select.options;
+				//创建新的节点对象
+				var option = document.createElement("option");
+				option.innerHTML = str;
+				//将新数据添加到下拉框的数组中
+				options.add(option); */
+				
+				
+				//第三种
+				var options = select.options;
+				//创建option选项对象
+				var newOption = new Option(str,options.length+1);
+				//将对象追加到下拉框列表数组中
+				options.add(newOption);
+				
+			}
+		
+			//write()		将任意的字符串追加插入到文档中
+			 document.write("想写的内容</br>");
+			 document.write("想写的内容</br>");
+			 document.write("想写的内容</br>");
+			
+			//insertBefore()	向指定的已有的节点之前插入新的节点newItem：要插入的节点exsitingItem： 
+			//					多用于移动元素，参考节点   需要参考父节点
+
+			//1.移动节点
+			//获取到需要移动的元素
+			var pdd = document.getElementById("pdd");
+			//获取参考位置的节点
+			var uzi = document.getElementById("uzi");
+			//获取父节点
+			var body = document.getElementsByTagName("body")[0];
+			console.log(body);
+			//参数 1.移动节点   2.参考位置节点
+			body.insertBefore(pdd,uzi);
+
+			//2.插入新节点,需要创建个新的节点
+			var opt = document.createElement('span');
+			opt.setAttribute('id','opt');
+			opt.innerHTML="新增节点";
+			body.insertBefore(opt,uzi);
+
+
+		</script>
+	</body>
+</html>

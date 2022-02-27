@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>开始使用layui</title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body>
+		<div class="demoTable">
+		    搜索ID：
+		    <div class="layui-inline">
+		        <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+		    </div>
+		    <button class="layui-btn" id="searchBtn">搜索</button>
+		</div>
+		<!-- 数据表格 -->
+		<table class="layui-hide" id="demo" lay-filter="test"></table>
+
+
+		<table class="layui-table" lay-data="{url:'js/data.json'}">
+			<thead>
+				<tr>
+					<th lay-data="{field:'userId'}">ID</th>
+					<th lay-data="{field:'uname'}">用户名</th>
+					<th lay-data="{field:'usex'}">性别</th>
+				</tr>
+			</thead>
+		</table>
+
+
+		<!-- 表格工具栏 -->
+		<script type="text/html" id="toolbarDemo">
+		  <div class="layui-btn-container">
+		    <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+		    <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+		    <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>
+		  </div>
+		</script>
+		
+		<!-- 表头工具栏 -->
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>
+
+		<script src="js/jquery-3.5.1.min.js"text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			// 模块和回调函数
+			// 一般直接写在一个js文件中
+			layui.use(['table', 'form'], function() {
+				var table = layui.table;
+
+				//加载数据表格
+				table.render({
+					//绑定容器的id
+					elem: "#demo",
+					//加载数据的地址
+					url: "js/data.json",
+					cols: [
+						[ //表头
+							{
+								field: 'userId',
+								title: '编号'
+							},
+							{
+								field: 'uname',
+								title: '姓名',
+								edit: 'text'
+							},
+							{
+								field: 'upwd',
+								title: '密码'
+							},
+							{
+								field: 'uage',
+								title: '年龄',
+								sort: true
+							},
+							{
+								field: 'usex',
+								title: '性别'
+							},
+							{
+								title: '操作',
+								toolbar:'#barDemo'
+							}
+						]
+					],
+					page: true, //开启分页
+					toolbar: "#toolbarDemo"
+				});
+
+
+				// 监听头部工具栏
+				table.on('toolbar(test)', function(obj){
+					console.log(obj.event);
+					switch(obj.event) {
+						case "add":
+							alert("添加操作");
+							break;
+						case "delete":
+							alert("删除操作");
+							break;
+						case "update":
+							alert("编辑");
+							break;
+					}
+				});
+				
+				
+				/**
+				  * 绑定行工具栏
+				  */
+				table.on("tool(test)",function(obj){
+				        console.log(obj);
+				        if (obj.event == "edit") {
+				            layer.msg("编辑");
+				            console.log(obj.data);
+				            // 输入框
+				            layer.prompt({
+				                // 表单元素的类型 0=文本框 1=密码框 2=文本域 
+				                formType: 0
+				                ,value: obj.data.uname 
+				            }, function(value, index){
+				                // 修改指定单元格的值
+				                // value表示输入的值
+				                obj.update({
+				                    uname: value
+				                });
+				                // 关闭弹出层
+				                layer.close(index);
+				            });
+				        } else if (obj.event == "del") {
+				            // 确认框
+				            layer.confirm('真的删除行么', function(index){
+				                // 删除指定tr
+				                obj.del();
+				                // index 当前弹出层的下标，通过下标关闭弹出层
+				                layer.close(index);
+				            });
+				        }
+				    });
+				
+				
+				 // 监听单元格编辑
+				table.on('edit(test)', function(obj){
+					var value = obj.value // 得到修改后的值
+					,data = obj.data // 得到所在行所有键值
+					,field = obj.field; // 得到字段
+					layer.msg('[ID: '+ data.userId +'] ' + field + ' 字段更改为：'+ value);
+				});
+
+
+				// 给指定元素绑定事件
+				$(document).on('click', '#searchBtn', function(data) {
+					// 获取搜索框对象
+					var demoReload = $('#demoReload');
+					table.reload('demo', {   //表格的id属性值
+						where: { // 设定异步数据接口的额外参数，任意设
+							userId: demoReload.val()
+						}
+						,page: {
+							// 让条件查询从第一页开始查询，不写则从当前页开始查询，此页之前的数据将不纳入条件筛选
+							curr: 1 // 重新从第 1 页开始
+						}
+					}); // 只重载数据
+				});
+			});
+		</script>
+	</body>
+</html>

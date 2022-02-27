@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			div{
+				padding: 8px;
+				width: 180px;
+			}
+			.blue{
+				background: blue;
+			}
+			.larger{
+				font-size: 30px;
+			}
+			.green {
+				background : green;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			attr(“class”)					获取class属性的值，即样式名称
+			attr(“class”,”样式名”)			修改class属性的值，修改样式
+			addClass(“样式名”)				添加样式名称
+			css()							添加具体的样式   相当于直接设置行内style
+			removeClass(class)				移除样式名称
+		 -->
+		 
+		<h3>css()方法设置元素样式</h3>
+		<div id="conBlue" class="blue larger">天蓝色</div>
+		<div id="conRed">大红色</div>
+		<div id="remove" class="blue larger">天蓝色</div>
+		
+		<script type="text/javascript">
+			//获取class属性的值，即样式名称
+			var clas = $("#conBlue").attr("class");
+			console.log(clas);
+			
+			//修改class属性的值，修改样式
+			$("#conBlue").attr("class","green");//把字体的大小样式和颜色均覆盖
+			
+			//addClass(“样式名”)		添加样式名称
+			$("#conRed").addClass("larger");
+			
+			//css()
+			$("#conRed").css("color","red");
+			
+			//removeClass(class)				移除样式名称
+			$("#remove").removeClass("larger");
+
+		</script>
+	</body>
+</html>

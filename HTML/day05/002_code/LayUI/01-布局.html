@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+	</head>
+	<body>
+		<!-- 布局 -->
+		<div class="layui-container" >
+			<h3>常规布局（以中型屏幕桌面为例）：</h3>
+			<div class="layui-row">
+				<div class="layui-col-md9" style="background-color: #00F7DE;">
+				  你的内容 9/12
+				</div>
+				<div class="layui-col-md3" style="background-color: rosybrown;">
+				  你的内容 3/12
+				</div>
+			</div>
+			
+			<h3>平板、桌面端的不同表现：</h3>
+			<div class="layui-row">
+			    <div class="layui-col-sm6 layui-col-md4"  
+			         style="background-color: thistle">
+			        平板≥768px：6/12 | 桌面端≥992px：4/12
+			    </div>
+			</div>
+			<div class="layui-row">	    
+			    <div class="layui-col-sm4 layui-col-md6"  
+			         style="background-color: mediumaquamarine;">
+			        平板≥768px：4/12 | 桌面端≥992px：6/12
+			    </div>
+			</div>
+			<div class="layui-row">
+				<!-- 按照屏幕的宽度进行分栅栏格显示 -->
+			    <div class="layui-col-sm12 layui-col-md8" 
+			         style="background-color: coral">
+			        平板≥768px：12/12 | 桌面端≥992px：8/12
+			    </div>
+			</div>
+			<br>
+			<h3>列间距</h3>
+			<div class="layui-row layui-col-space30">
+			    <div class="layui-col-md4" >
+			        <!-- 需要在layui-col-md4里面再加一层div -->
+			        <div style="background-color: #009688;">
+			            1/3
+			        </div>
+			    </div>
+			    <div class="layui-col-md4">
+			        <div style="background-color: burlywood;">
+			            1/3
+			        </div>
+			    </div>
+			    <div class="layui-col-md4">
+			        <div style="background-color: silver;">
+			            1/3
+			        </div>
+			    </div>
+			</div>
+		
+			<h3>列偏移</h3>
+			<div class="layui-row">
+			    <div class="layui-col-md4" style="background-color: rosybrown;">
+			        4/12
+			    </div>
+			    <div class="layui-col-md4 layui-col-md-offset2" 
+			         style="background-color: cornflowerblue;">
+			        偏移2列，从而在最右
+			    </div>
+				<div class="layui-col-md1" style="background-color: #0000FF;">
+					1/12
+				</div>
+			</div>
+			
+			<h3>列嵌套</h3>
+			<div class="layui-row layui-col-space5">
+			    <div class="layui-col-md5" style="background-color: thistle;">
+			        <div class="layui-row">
+			            <div class="layui-col-md3" style="background-color: burlywood;" >
+			                内部列
+			            </div>
+			            <div class="layui-col-md5" style="background-color: indianred;">
+			                内部列
+			            </div>
+			            <div class="layui-col-md4" style="background-color: mediumaquamarine;">
+			                内部列
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+		
+		<!-- 完整宽度 -->
+		<!-- <div class="layui-fluid" style="background-color: #00F7DE;">
+			hello
+		</div> -->
+	</body>
+</html>

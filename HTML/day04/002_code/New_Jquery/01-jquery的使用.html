@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 
+			1.官网下载对应的jquery版本文件
+			2.在需要用到jquery的地方，用script标签引入进来
+		 -->
+		<div id="div1">
+			hello
+		</div>
+		
+		<script type="text/javascript">
+			//获取元素包装集对象
+			var div1 = $("#div1");
+			console.log(div1);
+			console.log(div1[0].innerText);
+		</script>
+	</body>
+</html>

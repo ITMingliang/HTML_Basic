@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 内部样式 -->
+		<style type="text/css">
+			/* 通用选择器 选择所有  * */
+			/* * {
+				color: #0000FF;
+			} */
+			/* 元素选择器   选择指定标签 */
+			p {
+				font-size: 18px;
+				font-weight: bold;
+			}
+			/* ID选择器   选择设置过指定id属性值的元素 #  */
+			#whit{
+				/* color: red; */
+			}
+			/* 类选择器  选择设置过指定class属性值的元素  . */
+			.wh{
+				font-family: 华文新魏;
+			}
+			/* 分组选择器   当几个元素样式属性一样时，可以共同调用一个声明，元素之间用逗号分隔*/
+			.wh,#whit,p{
+				color: blueviolet;
+				/* 边框：边框粗细 边框风格 边框颜色 */
+				border: 1px solid #00FFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			通用选择器
+				选择所有  *
+		 
+		 -->
+		 <!--选择器优先级
+		 ID 选择器>class选择器>元素选择器>通用选择器
+		  -->
+		  <!-- 
+		  行内style的样式属性权重最高；
+		   -->
+		 <div >UZI</div>
+		 <div id="whit">55开</div>
+		 <div class="wh">刘某</div>
+		 <div class="wh">大司马</div>
+		 <p>段落标签</p>
+		 <span>行内</span>
+	</body>
+</html>

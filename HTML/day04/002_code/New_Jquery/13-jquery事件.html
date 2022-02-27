@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 
+			ready加载事件
+				ready()类似于 onLoad()事件
+				​ready()可以写多个，按顺序执行
+				​语法：
+					$(document).ready(function(){})
+					或
+					$(function(){
+						
+					});
+			
+				ready加载事件和load加载事件区别
+					load：加载页面中的DOM结构和外部资源之后执行
+					ready：加载页面中的DOM之后执行
+					
+			bind()绑定事件
+				格式：$(selector).bind( eventType [, eventData], handler(eventObject));
+		 -->
+		 
+		 <div id="ch1">div标签</div>
+		 <button type="button" id="bt1">按钮1单个事件</button>
+		 <button type="button" id="bt2">按钮2多个事件</button>
+		 <button type="button" id="bt3">按钮3多个事件第二种</button>
+		 <button type="button" id="bt4">按钮4便捷绑定事件</button>
+		 
+		 <script type="text/javascript">
+			 //ready加载事件
+			 $(document).ready(function(){
+				 
+			 });
+
+			 $(function(){
+				var ch1 = document.getElementById("ch1");
+				ch1.innerHTML = "新的内容"; 
+			 });
+			 
+			 
+			 
+			 //bind()绑定简单方式
+			 $("#bt1").bind("click",function(){
+				 console.log("按钮1被点击了");
+			 });
+			 
+			 //bind绑定多个事件
+			 $("#bt2").bind("click",function(){
+				console.log("按钮2被点击了");
+			 }).bind("mouseover",function(){
+			 	console.log("按钮2鼠标悬停");
+			 });
+			 
+			 //bind绑定多个事件2
+			 $("#bt3").bind({
+				 "click":function(){
+					 console.log("按钮3被点击了");
+				 },
+				 "mousemove":function(){
+					 console.log("鼠标3移动了");
+				 }
+			 });
+			 
+			 
+			 //bind便捷绑定事件3
+			 $("#bt4").mouseout(function(){
+				 console.log("鼠标移开了");
+			 });
+			 
+			 //js绑定事件方式
+			 //document.getElementById("id值").onclick = function(){};
+		 			 
+		 </script>
+	</body>
+</html>

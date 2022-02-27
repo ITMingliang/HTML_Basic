@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.testColor{
+				background: green;
+			}
+			.gray{
+				background: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			后代选择器	ancestor descendant$("#parent div")		选择id为parent的元素的所有div元素
+			子代选择器	parent > child$("#parent>div")			选择id为parent的直接div子元素
+			相邻选择器	prev + next$(".blue + img")				选择css类为blue的下一个img元素
+			同辈选择器	prev ~ sibling$(".blue ~ img")			选择css类为blue的之后的img元素
+		 -->
+		<div id="parent">层次择器
+		<div id="child" class="testColor">父选择器
+			<div></div>
+			<div class="gray">子选择器
+				<img src="http://www.baidu.com/img/bd_logo1.png" 
+					   width="270" height="129" />
+				<img src="http://www.baidu.com/img/bd_logo1.png" 
+					   width="270" height="129" />
+			</div>	
+			<div>
+				选择器2<div>选择器2中的div</div>
+			</div>
+			<div>新div1</div>
+			<div>新div2</div>
+		</div>
+		 
+		 <script type="text/javascript">
+		 	//后代选择器
+			var hd = $("#child div");
+			console.log(hd);
+			
+			//子代选择器
+			var zd = $("#child > div");
+			console.log(zd);
+			
+			//相邻选择器
+			var xl = $(".gray + div");
+			console.log(xl);
+			
+			//同辈选择器，同一个层级
+			var tb = $(".gray ~ div");
+			console.log(tb);
+		 </script>
+	</body>
+</html>

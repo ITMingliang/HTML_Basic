@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 内部样式 -->
+		<style type="text/css">
+			/* 后代选取器(以空格分隔)， */
+			/* .food li{
+				border: 1px solid red;  框的宽度   边框线条类型  边框颜色
+			} */
+			/* 子元素选择器(以大于号分隔） */
+			/* .food2 > li{
+				border: 1px solid red;
+			} */
+			/* 相邻兄弟选择器（以加号分隔） ，代码是从上向下运行的，所以相邻兄弟是指下面的一个元素*/
+			/* #d + span{
+				border: 1px solid red;
+			} */
+			/* 普通兄弟选择器（以波浪线分隔） 代码是从上向下运行的，所以普通兄弟是指下面的所有兄弟元素*/
+			#newD ~ div{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			组合选择器
+				后代选取器(以空格分隔)，
+				子元素选择器(以大于号分隔），
+				相邻兄弟选择器（以加号分隔），
+				普通兄弟选择器（以波浪线分隔）。
+		 -->
+		 
+		 <h1>食物</h1>
+		 <ul class="food">
+		     <li>水果
+		         <ul>列表标签1
+		             <li>香蕉</li>
+		             <li>苹果</li>
+		             <li>梨</li>
+		         </ul>
+		     </li>
+		     <li>蔬菜
+		         <ul>列表标签1
+		             <li>白菜</li>
+		             <li>油菜</li>
+		             <li>卷心菜</li>
+		         </ul>
+		     </li>
+		 </ul>
+		 
+		 <ul class="food2">
+		     <li>水果
+		         <ul>列表标签1
+		             <li>香蕉</li>
+		             <li>苹果</li>
+		             <li>梨</li>
+		         </ul>
+		     </li>
+		     <li>蔬菜
+		         <ul>列表标签1
+		             <li>白菜</li>
+		             <li>油菜</li>
+		             <li>卷心菜</li>
+		         </ul>
+		     </li>
+		 </ul>
+	
+	   <span>span标签</span>
+		<div id="d">
+		    相邻兄弟选择器1
+		    <ul>
+		        <li>开心麻花</li>
+		        <li>贾玲</li>
+		        <li>宋小宝</li>
+		    </ul>
+		</div>
+		<span>span标签</span>
+		<div>
+		    相邻兄弟选择器2
+		</div>
+		<div>
+		    相邻兄弟选择器3
+		</div>
+		<div>
+		    相邻兄弟选择器4
+		</div>
+	<hr >
+		<div>
+			普通兄弟选择器0
+		</div>
+		<div id="newD">
+		    普通兄弟选择器1
+		    <ul>
+		        <li>开心麻花</li>
+		        <li>贾玲</li>
+		        <li>宋小宝</li>
+		        <li>沈腾</li>
+		        <li>王宁</li>
+		    </ul>
+		</div>
+		<div>
+		    普通兄弟选择器2
+		</div>
+		<div>
+		    普通兄弟选择器3
+		</div>
+		<div>
+		    普通兄弟选择器4
+		</div>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>开始使用layui</title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body>
+
+		<!-- 你的HTML代码 -->
+
+		<script src="layui/layui.js"></script>
+		<script>
+			// 模块和回调函数
+			// 一般直接写在一个js文件中
+			layui.use(['layer', 'form'], function() {
+				var layer = layui.layer;
+
+				// layer.msg('Hello World');
+				
+				 /* 信息框 */
+				// layer.open({
+				//     type:0,
+				//     title:"系统消息",
+				//     // content可以传入任意的文本或html
+				//     content:"Hello"
+				// });
+				
+				/* 页面层 */
+				// layer.open({
+				//     type:1,
+				//     title:"系统消息",
+				//     // content可以传入任意的文本或html
+				//     content:"<h2 style='height:100px;width:200px'>Hello</h2>"
+				// });
+				
+				/* iframe */
+				// layer.open({
+				//     type:2,
+				//     title:"系统消息",
+				//     // content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['url', 'no']
+				//     content:"http://www.baidu.com"
+				//     // content:["http://www.baidu.com",'no']
+				// });
+				
+				 /* tips层 */
+				// layer.open({
+				//   type: 4,
+				//   content: ['内容', '#id'] //数组第二项即吸附元素选择器或者DOM
+				// });
+				
+				
+				/* iframe */
+				// layer.open({
+				//     type:2,
+				//     title:"系统消息",
+				//     // content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['url', 'no']
+				//     content:"http://www.baidu.com",
+				//     // content:["http://www.baidu.com",'no']
+				// 	area:['600px','400px']
+				// });
+				
+				
+				//icon 图标
+				// eg1
+				// layer.alert('酷毙了', {icon: 1});
+				// eg2
+				// layer.msg('不开心。。', {icon: 4});
+				// eg3
+				// layer.load(2); // 风格1的加载
+				
+				
+				layer.msg('你愿意和我做朋友么？', {
+				    time: 0, //不自动关闭
+				    btn: ['当然愿意', '狠心拒绝'], // 按钮
+				    yes: function(index){ 
+				        layer.close(index); // 关闭当前弹出框
+				        layer.msg('新朋友，你好！', {
+				            icon: 6, // 图标
+				            btn: ['开心','快乐']
+				        });
+				    }
+				});
+			});
+		</script>
+	</body>
+</html>

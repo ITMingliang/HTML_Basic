@@ -1,0 +1,35 @@
+{
+	"code":0,
+	"msg":"注册成功",
+	"count":4,
+	"data":[
+		{
+			"userId":1,
+			"uname":"zhangsan",
+			"upwd":"12kjh3456",
+			"uage":23,
+			"usex":false
+		},
+		{
+			"userId":2,
+			"uname":"lisi",
+			"upwd":"123hgf456",
+			"uage":18,
+			"usex":true
+		},
+		{
+			"userId":3,
+			"uname":"wangwu",
+			"upwd":"1234da56",
+			"uage":38,
+			"usex":false
+		},
+		{
+			"userId":4,
+			"uname":"xiaoming",
+			"upwd":"1ewqe23456",
+			"uage":40,
+			"usex":true
+		}
+	]
+}

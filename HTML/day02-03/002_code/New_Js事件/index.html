@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+	</head>
+	<body>
+		<!-- 
+			Html事件处理程序
+				弊端：与标签耦合度太高
+				直接绑定在标签体上
+					<button type="button" onclick="fun1()" onmouseout="console.log('控制台')">Html事件处理程序</button>
+					
+			DOM0级事件处理程序
+				弊端：不能给同一个元素绑定同一个事件多次
+				1.获取元素
+					var i = document.getElementById("id值");
+				2.给元素绑定事件、
+					but1.on事件名 = function(){
+						//处理程序
+					}
+			
+			DOM2级事件处理程序
+				方法：
+					添加：addEventListener      移除： removeEventListener 
+				1.获取元素
+					var but2 = document.getElementById("id值");
+				2.给元素添加事件监听 
+					绑定事件：
+						but2.addEventListener("事件名",function(){
+							console.log("DOM2级事件处理程序2");
+						});
+						或者
+						but2.addEventListener('事件名',方法名);	
+					移除事件：
+						but2.removeEventListener('事件名',方法名);
+					
+					
+		 -->
+		<button type="button" onclick="alert('消息框');" onmouseout="console.log('控制台')">Html事件处理程序</button>
+		<button type="button" onclick="fun1();" onmouseout="console.log('控制台')">Html事件处理程序</button>
+
+		<button type="button" id="but1">DOM0级事件处理程序</button>
+		<button type="button" id="but2">DOM2级事件处理程序</button>
+		<button type="button" id="but3">删除DOM2级事件处理程序</button>
+		
+		<script type="text/javascript">
+			//Html事件处理程序
+			function fun1(){
+				alert("消息框");
+			}
+			
+			//加载事件 load   当页面中元素和引入的资源加载完毕之后执行里面的代码
+			window.onload = function(){
+				//。。。。。。。
+			}
+			
+			/* DOM0级事件处理程序 */
+			//获取元素
+			var but1 = document.getElementById("but1");
+			// 2.给元素绑定事件
+			but1.onclick = function(){
+				console.log('DOM0级事件处理程序1');
+			}
+			//添加的第二的Click事件起作用，第一个被覆盖
+			but1.onclick = function(){
+				console.log('DOM0级事件处理程序2');
+			}
+			
+			
+			//DOM2级事件处理程序
+			//获取元素
+			var but2 = document.getElementById("but2");
+			var but3 = document.getElementById("but3");
+			
+			but2.addEventListener("click",function(){
+				console.log("DOM2级事件处理程序1");
+			});
+			but2.addEventListener("click",function(){
+				console.log("DOM2级事件处理程序2");
+			});
+			
+			function fun3(){
+				console.log("有方法名的处理程序");
+			}
+			but2.addEventListener('mouseover',fun3);
+			
+			
+			//移除but2的某个事件
+			but3.addEventListener("click",function(){
+				but2.removeEventListener('mouseover',fun3);
+			});
+		</script>
+	</body>
+</html>

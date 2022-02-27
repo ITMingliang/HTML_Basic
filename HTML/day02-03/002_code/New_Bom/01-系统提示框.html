@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			（1）消息框:alert， 常用。
+			    alert() 方法用于显示带有一条指定消息和一个 OK 按钮的警告框。
+			（2）输入框:prompt，返回提示框中的值。
+			    prompt() 方法用于显示可提示用户进行输入的对话框。
+			    参数（可选）：
+			       第一个参数：要在对话框中显示的纯文本。
+			 	   第二个参数：默认的输入文本。
+			（3）确认框:confirm，返回 true/false.
+			confirm() 方法用于显示一个带有指定消息和 OK 及取消按钮的对话框。
+		 -->
+		 <button type="button" id="but">按钮 提示框</button>
+		 <script type="text/javascript">
+			document.getElementById("but").onclick = function(){
+				//消息框
+				// alert("消息框");
+				
+				//输入框,第一个参数为显示的存文本，第二个参数为设置的默认输入内容
+				/* var uname = window.prompt("请输入用户名","admin");
+				if(uname == "admin"){
+					alert("欢迎超级用户：" + uname);
+				}else{
+					alert("欢迎用户：" + uname);
+				} */
+				
+				//确认框
+				var bool = confirm("确认删除这条数据吗");
+				//根据点击的情况返回bool值
+				if(bool){
+					alert("删除成功");
+				}else{
+					alert("取消成功");
+				}
+			}
+		 </script>
+	</body>
+</html>

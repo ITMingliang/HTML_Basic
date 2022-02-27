@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>开始使用layui</title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body>
+
+		<div class="layui-container">
+			<input type="text" name="" id="date1" value="" />
+			<br>
+			<input type="text" name="" id="date2" value="" />
+			<br>
+			<br>
+			<input type="text" name="" id="test1" value="" />
+			<input type="text" name="" id="test2" value="" />
+		</div>
+
+		<script src="layui/layui.js"></script>
+		<script>
+			// 模块和回调函数
+			// 一般直接写在一个js文件中
+			layui.use(['laydate', 'form'], function() {
+				var laydate = layui.laydate,
+					form = layui.form;
+
+				//执行一个laydate实例
+				laydate.render({
+					elem: '#date1' ,//指定元素
+					type:'datetime',
+					format:'yyyy/MM/dd HH:mm:ss'
+				});
+				
+				laydate.render({
+					elem: '#date2' ,//指定元素
+					format:'yyyy年MM月dd日'
+				});
+				
+				// 传入符合format格式的字符给初始值
+				laydate.render({ 
+				  elem: '#test1'
+				  ,value: '2018-08-18' //必须遵循format参数设定的格式
+				});
+				 
+				// 传入Date对象给初始值
+				laydate.render({ 
+				  elem: '#test2'
+				  ,value: new Date(1534766888000) //参数即为：2018-08-20 20:08:08 的时间戳
+				});
+
+			});
+		</script>
+	</body>
+</html>

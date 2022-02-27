@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			getElementById()		根据id获取dom对象，如果id重复，那么以第一个为准
+			getElementsByTagName()		根据标签名获取dom对象数组
+			getElementsByClassName()		根据样式名获取dom对象数组
+			getElementsByName()		根据name属性值获取dom对象数组，常用于多选获取值
+			
+			
+			a标签点击跳转调用 href属性，设置属性javascript:void(0) 伪协议，不执行跳转
+			注意：操作 dom 必须等节点初始化完毕后，才能执行。
+			​	处理方式两种:
+			​		（1）把 script 调用标签移到html末尾即可；
+			​		（2）使用onload事件来处理JS，等待html 加载完毕再加载 onload 事件里的 JS。
+			
+		-->
+			<p id="p1" class="para">这是一个段落<span>文本</span></p>
+			<p id="p1" class="para">这又是一个段落</p>
+			<input type="text" name="txt" class="para"/>
+
+			<input type="checkbox" name="hobby" value="游泳" />游泳
+			<input type="checkbox" name="hobby" value="篮球" />篮球
+			<input type="checkbox" name="hobby" value="足球" />足球
+			<hr />
+			<a href="javascript:testById()">按照id获取</a>
+			<a href="javascript:void(0)" onclick="testByName()">按照name获取</a>
+			<a href="javascript:void(0)" onclick="testByTagName()">按照标签名获取</a>
+			<a href="javascript:void(0);" onclick="testByClass();">按照class获取</a>
+			
+			<script type="text/javascript">
+				function testById(){
+					//getElementById()
+					var p = document.getElementById("p1");
+					console.log(p);
+				}
+				
+				//通过name属性获取元素节点
+				function testByName(){
+					var hobbys = document.getElementsByName("hobby");
+					console.log(hobbys[1]);
+				}
+				
+				//按照标签名获取
+				function testByTagName(){
+					var inputs = document.getElementsByTagName("input");
+					console.log(inputs[1]);
+				}
+				
+				//
+				function testByClass(){
+					var clsz = document.getElementsByClassName("para");
+					console.log(clsz);
+				}
+			</script>
+	</body>
+</html>

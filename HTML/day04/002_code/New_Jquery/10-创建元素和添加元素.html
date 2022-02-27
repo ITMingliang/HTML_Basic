@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			div	{
+				margin: 10px 0px;
+			}
+			span{
+				color: white;
+				padding: 8px
+			}
+			.red{
+				background-color: red;
+			}
+			.blue{
+				background-color: blue;
+			}
+			.green{
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			创建元素
+				$(‘元素内容’);
+				
+			prepend(content)					在被选元素内部的开头插入元素或内容，被追加的 content 参数，可以是字符、HTML 元素标记。
+			$(content).prependTo(selector)		把 content 元素或内容加入 selector 元素开头
+			append(content)						在被选元素内部的结尾插入元素或内容，被追加的 content 参数，可以是字符、HTML 元素标记。
+			$(content).appendTo(selector)		把 content元素或内容插入selector 元素内，默认是在尾部
+			before()							在元素前插入指定的元素或内容:$(selector).before(content)
+			after()								在元素后插入指定的元素或内容:$(selector).after(content)
+		 -->
+
+		<span class="red">男神</span>
+		<span class="blue">偶像</span>
+		<div class="green">
+			 <span >小鲜肉</span>
+		</div> 
+		 
+		<script type="text/javascript">
+			//创建元素
+			var newP = $("<span>段落标签</span>");
+			console.log(newP);
+			
+			//添加元素  prepend(content)  内部前追加
+			//获取参考位置的元素
+			var str = "<span>PDD</span>";
+			$('.green').prepend(newP);
+			$('.green').prepend(str);	
+			//prependTo();  被内部前追加
+			var str2 = "<span>麻辣香锅</span>";
+			$(str2).prependTo($(".green"));
+			
+			
+			//append()  内部后追加
+			$('.green').append("<span >周杰伦</span>");
+			//appendTo(); 被内部后追加
+			$("<span >林俊杰</span>").appendTo($('.green'));
+			
+			//before  同级前追加
+			$(".red").before("<span style='color:black'>薛之谦</span>");
+			//after   同级后追加
+			$(".blue").after("<span style='color:black'>李荣浩</span>");
+		</script>
+	</body>
+</html>

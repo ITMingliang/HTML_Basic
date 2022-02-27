@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			location 对象
+				window对象之一，提供了与当前窗口中加载的文档有关的信息，还提供了一些导航功能。也可通过 window.location 属性来访问。
+				​	属性   
+						href：设置或返回完整的 URL
+				​	方法
+					​	reload()：重新加载当前文档。
+					​	replace()：用新的文档替换当前文档。
+		 -->
+		 <button type="button" onclick="fun1()">设置href属性值</button>
+		 <button type="button" onclick="fun2()">重新加载</button>
+		 <button type="button" onclick="fun3()">替换</button>
+		<script type="text/javascript">
+			//输出打印当前页面的地址
+			console.log(window.location.href);
+			
+			function fun1(){
+				window.location.href = "http://www.baidu.com";
+			}
+			
+			//重新加载
+			function fun2(){
+				window.location.reload();
+			}
+			
+			//用新的页面替换当前页面（没有后退功能）
+			function fun3(){
+				window.location.replace("http://www.baidu.com");
+			}
+		</script>
+	</body>
+</html>

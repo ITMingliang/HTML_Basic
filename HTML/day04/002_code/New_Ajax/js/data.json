@@ -1,0 +1,31 @@
+{
+	"code":1,
+	"msg":"成功",
+	"result":[
+		
+		{
+			"uname":"zhangsan",
+			"uage":"12",
+			"job":"play",
+			"sex":1
+		},
+		{
+			"uname":"lisi",
+			"uage":"17",
+			"job":"student",
+			"sex":0
+		},
+		{
+			"uname":"wangwu",
+			"uage":"27",
+			"job":"work",
+			"sex":1
+		},
+		{
+			"uname":"xiaoming",
+			"uage":"25",
+			"job":"plice",
+			"sex":0
+		}
+	]
+}

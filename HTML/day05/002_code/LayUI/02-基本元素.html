@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+	</head>
+	<body>
+		<!-- 基础按钮 -->
+		<button type="button" class="layui-btn">一个标准的按钮</button>
+		<a href="http://www.layui.com" class="layui-btn">一个可跳转的按钮</a>
+		<div class="layui-btn">一个按钮</div>
+		<!-- 不同主题的按钮 -->
+		<button class="layui-btn">默认按钮</button>
+		<button class="layui-btn layui-btn-primary">原始按钮</button>
+		<button class="layui-btn layui-btn-normal">百搭按钮</button>
+		<button class="layui-btn layui-btn-warm">暖色按钮</button>
+		<button class="layui-btn layui-btn-danger">警告按钮</button>
+		<button class="layui-btn layui-btn-disabled">禁用按钮</button>
+		<!-- 不同尺寸的按钮 -->
+		<button class="layui-btn layui-btn-primary layui-btn-lg">大型</button>
+		<button class="layui-btn">默认</button>
+		<button class="layui-btn layui-btn-sm layui-btn-danger">小型</button>
+		<button class="layui-btn layui-btn-xs">迷你</button>
+		<br>
+		<!-- 按钮圆角 -->
+		<button class="layui-btn layui-btn-radius">默认按钮</button>
+		<button class="layui-btn layui-btn-primary layui-btn-radius">原始按钮</button>
+		<button class="layui-btn layui-btn-normal layui-btn-radius">百搭按钮</button>
+		<button class="layui-btn layui-btn-warm layui-btn-radius">暖色按钮</button>
+		<button class="layui-btn layui-btn-danger layui-btn-radius">警告按钮</button>
+		<button class="layui-btn layui-btn-disabled layui-btn-radius">禁用按钮</button>
+
+		<!-- 水平导航 -->
+		<ul class="layui-nav layui-bg-blue">
+			<li class="layui-nav-item"><a href="">最新活动</a></li>
+			<li class="layui-nav-item layui-this"><a href="">产品</a></li>
+			<li class="layui-nav-item"><a href="">大数据</a></li>
+			<li class="layui-nav-item">
+				<a href="javascript:;">解决方案</a>
+				<dl class="layui-nav-child">
+					<!-- 二级菜单 -->
+					<dd><a href="">移动模块</a></dd>
+					<dd><a href="">后台模版</a></dd>
+					<dd><a href="">电商平台</a></dd>
+				</dl>
+			</li>
+			<li class="layui-nav-item"><a href="">社区</a></li>
+		</ul>
+
+		<!-- 侧边导航 -->
+		<!--<ul class="layui-nav layui-nav-tree">
+			 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> 
+			<li class="layui-nav-item layui-nav-itemed">
+				<a href="javascript:;">默认展开</a>
+				<dl class="layui-nav-child">
+					<dd><a href="javascript:;">选项1</a></dd>
+					<dd><a href="javascript:;">选项2</a></dd>
+					<dd><a href="">跳转</a></dd>
+				</dl>
+			</li>
+			<li class="layui-nav-item">
+				<a href="javascript:;">解决方案</a>
+				<dl class="layui-nav-child">
+					<dd><a href="">移动模块</a></dd>
+					<dd><a href="">后台模版</a></dd>
+					<dd><a href="">电商平台</a></dd>
+				</dl>
+			</li>
+			<li class="layui-nav-item"><a href="">产品</a></li>
+			<li class="layui-nav-item"><a href="">大数据</a></li>
+		</ul>-->
+		<br>
+		<!-- 面包屑式导航 -->
+		<span class="layui-breadcrumb"  lay-separator="%">
+		  <a href="">首页</a>
+		  <a href="">国际新闻</a>
+		  <a href="">亚太地区</a>
+		  <a><cite>正文</cite></a>
+		</span>
+
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//注意：导航  依赖于 element 模块，必须先引入再使用   否则无法进行功能性操作
+			layui.use('element', function() {
+				var element = layui.element;
+			});
+		</script>
+	</body>
+</html>

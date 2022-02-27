@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			（1）使用普通button按钮+onclick事件+事件中编写代码:
+			 		获取表单.submit();
+			（2）使用submit按钮 + onclick="return 函数()" + 函数编写代码: 
+		​			最后必须返回：return true|false;
+			（3）使用submit按钮/图片提交按钮 + 表单onsubmit="return 函数();" +函数编写代码: 
+		​			最后必须返回：return true|false;
+		 -->
+		<form id='myform1' name="myform2" action="http://www.baidu.com" method="get">	
+			姓名：<input type="text"  name="test"  id="uname"/>&nbsp;&nbsp;<span id="msg" style="color: red;"></span><br />
+			<!--通过js事件：sub()提交表单-->
+			<input type="button" onclick="sub();" value="提交表单1" />
+		</form>
+		
+		<form id='myform2' name="myform2" action="http://www.baidu.com" method="get">
+			姓名：<input type="text"  name="test"  id="uname2"/>&nbsp;&nbsp;<span id="msg2" style="color: red;"></span><br />
+			<!--通过js事件：sub()提交表单-->
+			<input type="submit" onclick="return sub2();" value="提交表单2" />
+		</form>
+		
+		<form id='myform3' name="myform2" action="http://www.baidu.com" method="get" onsubmit ="return sub3()">
+			姓名：<input type="text"  name="test"  id="uname3"/>&nbsp;&nbsp;<span id="msg3" style="color: red;"></span><br />
+			<!--通过js事件：sub()提交表单-->
+			<input type="submit" value="提交表单3" />
+		</form>
+		
+		<script type="text/javascript">
+			//使用普通button按钮+onclick事件+事件中编写代码:
+			function  sub(){
+				//校验数据合法性
+				var uname = document.getElementById("uname").value;
+				if(uname == null || uname.trim() == ""){
+					//提示用户用户名不能为空
+					document.getElementById("msg").innerHTML = "用户名不能为空";
+					return;
+				}
+				
+				//手动提交表单
+				document.getElementById("myform1").submit();
+			}
+			
+			//使用submit按钮 + onclick="return 函数()" + 函数编写代码: 
+			function  sub2(){
+				//校验数据合法性
+				var uname2 = document.getElementById("uname2").value;
+				//数据非空判断
+				if(uname2 == null || uname2.trim() == ""){
+					//提示用户用户名不能为空
+					document.getElementById("msg2").innerHTML = "用户名不能为空";
+					return false;
+				}
+				return true;
+			}
+			
+			// 使用submit按钮/图片提交按钮 + 表单onsubmit="return 函数();" + 函数编写代码: 
+			function  sub3(){
+				//校验数据合法性
+				var uname3 = document.getElementById("uname3").value;
+				//数据非空判断
+				if(uname3 == null || uname3.trim() == ""){
+					//提示用户用户名不能为空
+					document.getElementById("msg3").innerHTML = "用户名不能为空";
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</body>
+</html>
